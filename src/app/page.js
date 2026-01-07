@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 /* =======================
-   DATA EVENT
+    DATA EVENT
 ======================= */
 const events = [
   {
@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* ================= EVENT ================= */}
-      <section id="event" className="bg-slate-50 py-28">
+      <section id="event" className="bg-slate-50 py-16">
         <div className="text-center mb-20 animate-fade-in">
           <span className="text-xs font-black tracking-widest bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full animate-bounce">
             AGENDA EVENT
@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* ================= VIDEO ================= */}
-      <section id="video" className="py-28 bg-white">
+      <section id="video" className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12 animate-fade-in">
             <h3 className="text-3xl font-black text-slate-800 mb-4">
@@ -285,37 +285,49 @@ export default function Home() {
         </div>
       </section>
 
-     {/* ================= FOTO FRAME MASUKKAMPUS ================= */}
-<section className="py-28 bg-white">
-  <div className="max-w-7xl mx-auto px-6 flex justify-center">
+      {/* ================= FOTO FRAME & DESKRIPSI ================= */}
+      <section className="py-28 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          {/* Frame Foto */}
+          <div
+            className="relative w-full aspect-[3/4] md:aspect-[9/16] overflow-hidden shadow-2xl mb-12"
+            style={{
+              borderTopRightRadius: "4rem",
+              borderBottomRightRadius: "4rem",
+              borderTopLeftRadius: "0.75rem",
+              borderBottomLeftRadius: "0.75rem",
+            }}
+          >
+            <Image
+              src="/images/kegiatan.jpeg"
+              alt="Kegiatan Universitas Nurul Huda"
+              fill
+              className="object-contain"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/10"></div>
+          </div>
 
-    <div
-      className="relative w-full max-w-5xl aspect-[4/5] overflow-hidden shadow-2xl"
-      style={{
-        borderTopRightRadius: "4rem",
-        borderBottomRightRadius: "4rem",
-        borderTopLeftRadius: "0.75rem",
-        borderBottomLeftRadius: "0.75rem",
-      }}
-    >
-      <Image
-        src="/images/kegiatan.jpeg"
-        alt="Kegiatan Universitas Nurul Huda"
-        fill
-        className="object-cover"
-        priority
-      />
+          {/* Bagian Tulisan (Sesuai Gambar) */}
+          <div className="max-w-3xl">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-1.5 h-16 bg-[#008542] rounded-full"></div>
+              <div>
+                <span className="text-lg font-medium text-slate-800 block">Sejak</span>
+                <span className="text-4xl font-black text-slate-900">2025</span>
+              </div>
+            </div>
 
-      {/* overlay tipis biar soft */}
-      <div className="absolute inset-0 bg-black/10"></div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
+            <h3 className="text-3xl font-black text-slate-900 mb-4">EventUnuha</h3>
+            
+            <p className="text-slate-500 text-lg leading-relaxed">
+              Wadah event progresif bagi mahasiswa Universitas Nurul Huda. 
+              Konsisten mendampingi langkahmu melalui berbagai kegiatan seru, 
+              interaktif, dan penuh inspirasi.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* ================= FOOTER ================= */}
       <footer className="bg-[#002b16] text-white py-16 text-center">
