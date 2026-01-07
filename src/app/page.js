@@ -290,14 +290,7 @@ export default function Home() {
   <div className="max-w-7xl mx-auto px-6 flex justify-center">
 
     <div
-      className="
-        relative
-        w-full
-        max-w-5xl
-        aspect-[4/5]
-        overflow-hidden
-        shadow-2xl
-      "
+      className="relative w-full max-w-5xl aspect-[4/5] overflow-hidden shadow-2xl"
       style={{
         borderTopRightRadius: "4rem",
         borderBottomRightRadius: "4rem",
