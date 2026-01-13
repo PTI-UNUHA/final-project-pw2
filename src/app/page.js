@@ -46,15 +46,13 @@ export default function Home() {
       {/* ================= NAVBAR ================= */}
       <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-16 py-4 bg-[#008542]/95 backdrop-blur text-white shadow-lg">
         <div className="flex items-center gap-3">
-          <div className="relative w-11 h-11 md:w-12 md:h-12">
-            <Image
-              src="/images/logo_univ.png"
-              alt="Logo UNUHA"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+          <Image
+            src="/images/logo_univ.png"
+            alt="Logo UNUHA"
+            width={48}
+            height={48}
+            className="w-11 h-11 md:w-12 md:h-12 object-contain"
+          />
           <div className="flex flex-col leading-tight">
             <h1 className="text-xs md:text-sm font-bold tracking-wide text-emerald-100">
               UNIVERSITAS

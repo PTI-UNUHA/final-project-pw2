@@ -114,7 +114,11 @@ export default function EventDetailPage() {
     return (
       <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
         <div className="text-center">
-          <div className="text-6xl mb-4">😔</div>
+          <div className="w-16 h-16 bg-slate-400 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-.98-5.5-2.5" />
+            </svg>
+          </div>
           <p className="font-bold text-xl text-slate-600">Event Tidak Ditemukan</p>
           <Link href="/#event" className="inline-block mt-4 bg-[#008542] text-white px-6 py-3 rounded-full font-bold hover:bg-[#006b35] transition">
             Kembali ke Event
@@ -158,11 +162,16 @@ export default function EventDetailPage() {
               
               <div className="flex flex-wrap gap-4 text-emerald-100">
                 <div className="flex items-center gap-2">
-                  <span className="text-xl">📅</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
                   <span className="font-semibold">{event.date}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xl">📍</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
                   <span className="font-semibold">{event.location}</span>
                 </div>
               </div>
@@ -173,9 +182,9 @@ export default function EventDetailPage() {
           <div className="p-8 md:p-12 space-y-12">
             {/* Info Cards */}
             <div className="grid md:grid-cols-3 gap-6">
-              <InfoCard label="Tanggal" value={event.date} icon="📅" delay="0" />
-              <InfoCard label="Waktu" value={event.time} icon="⏰" delay="0.1" />
-              <InfoCard label="Lokasi" value={event.location} icon="📍" delay="0.2" />
+              <InfoCard label="Tanggal" value={event.date} icon={<CalendarIcon />} delay="0" />
+              <InfoCard label="Waktu" value={event.time} icon={<ClockIcon />} delay="0.1" />
+              <InfoCard label="Lokasi" value={event.location} icon={<LocationIcon />} delay="0.2" />
             </div>
 
             {/* Event Image */}
@@ -259,19 +268,17 @@ export default function EventDetailPage() {
 
             {/* Registration Section */}
             <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 md:p-12 rounded-[2rem] border border-yellow-200 animate-fade-in-up shadow-lg" style={{ animationDelay: '0.5s' }}>
-              <h3 className="text-2xl font-black text-slate-800 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center text-white text-sm font-bold">📝</span>
+              <h3 className="text-2xl font-black text-slate-800 mb-6">
                 Pendaftaran Event
               </h3>
 
               {submitted ? (
                 <div className="text-center py-8">
-                  <div className="text-6xl mb-4">✅</div>
-                          <h4 className="text-xl font-black text-green-600 mb-2">Pendaftaran Berhasil!</h4>
-                  <p className="text-black">Terima kasih telah mendaftar. Kami akan menghubungi Anda segera.</p>
+                  <h4 className="text-xl font-bold text-green-600 mb-2">Pendaftaran Berhasil!</h4>
+                  <p className="text-black mb-4">Terima kasih telah mendaftar. Kami akan menghubungi Anda segera.</p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-4 bg-[#008542] text-white px-6 py-3 rounded-full font-bold hover:bg-[#006b35] transition"
+                    className="bg-[#008542] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#006b35] transition-colors"
                   >
                     Daftar Event Lain
                   </button>
@@ -286,7 +293,7 @@ export default function EventDetailPage() {
                     <div className="text-center">
                       <button
                         onClick={() => setShowForm(true)}
-                        className="bg-[#008542] text-white px-8 py-4 rounded-full font-black text-lg hover:bg-[#006b35] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                        className="bg-[#008542] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#006b35] transition-colors"
                       >
                         Daftar Sekarang
                       </button>
@@ -302,7 +309,7 @@ export default function EventDetailPage() {
                             value={formData.name}
                             onChange={handleInputChange}
                             required
-                            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008542] focus:outline-none transition-colors placeholder-black text-black"
+                            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008542] focus:outline-none transition-colors placeholder-slate-400 text-black"
                             placeholder="Tulis nama lengkap kamu"
                           />
                         </div>
@@ -314,7 +321,7 @@ export default function EventDetailPage() {
                             value={formData.email}
                             onChange={handleInputChange}
                             required
-                            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008542] focus:outline-none transition-colors placeholder-black text-black"
+                            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008542] focus:outline-none transition-colors placeholder-slate-400 text-black"
                             placeholder="email@kampus.ac.id"
                           />
                         </div>
@@ -326,7 +333,7 @@ export default function EventDetailPage() {
                             value={formData.nim}
                             onChange={handleInputChange}
                             required
-                            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008542] focus:outline-none transition-colors placeholder-black text-black"
+                            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008542] focus:outline-none transition-colors placeholder-slate-400 text-black"
                             placeholder="Contoh: 20210001"
                           />
                         </div>
@@ -361,21 +368,21 @@ export default function EventDetailPage() {
                           value={formData.phone}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008542] focus:outline-none transition-colors placeholder-black text-black"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008542] focus:outline-none transition-colors placeholder-slate-400 text-black"
                           placeholder="Nomor WA aktif kamu"
                         />
                       </div>
                       <div className="flex flex-col sm:flex-row gap-4">
                         <button
                           type="submit"
-                          className="flex-1 bg-[#008542] text-white px-8 py-4 rounded-full font-black text-lg hover:bg-[#006b35] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                          className="flex-1 bg-[#008542] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#006b35] transition-colors"
                         >
                           Kirim Pendaftaran
                         </button>
                         <button
                           type="button"
                           onClick={() => setShowForm(false)}
-                          className="px-8 py-4 rounded-full font-bold text-slate-600 border-2 border-slate-300 hover:border-slate-400 transition-colors"
+                          className="px-6 py-3 rounded-lg font-bold text-slate-600 border border-slate-300 hover:bg-slate-50 transition-colors"
                         >
                           Batal
                         </button>
@@ -399,7 +406,7 @@ function InfoCard({ label, value, icon, delay }) {
       style={{ animationDelay: `${delay}s` }}
     >
       <div className="flex items-center gap-4">
-        <div className="w-12 h-12 bg-gradient-to-br from-[#008542] to-[#006b35] rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">
+        <div className="w-12 h-12 bg-gradient-to-br from-[#008542] to-[#006b35] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
           {icon}
         </div>
         <div className="flex-1">
@@ -408,5 +415,31 @@ function InfoCard({ label, value, icon, delay }) {
         </div>
       </div>
     </div>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+  );
+}
+
+function ClockIcon() {
+  return (
+    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <circle cx={12} cy={12} r={10} strokeWidth={2} />
+      <path strokeWidth={2} d="M12 6v6l4 2" />
+    </svg>
+  );
+}
+
+function LocationIcon() {
+  return (
+    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
   );
 }
